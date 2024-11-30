@@ -17,13 +17,13 @@ class SignUpBody extends StatefulWidget {
 }
 
 class _SignUpBodyState extends State<SignUpBody> {
-  final GlobalKey<FormState> formKey = GlobalKey();
+  final GlobalKey<FormState> key = GlobalKey();
   String emailAddress = '';
   String password = '';
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: key,
       child: Column(
         children: [
           const Row(

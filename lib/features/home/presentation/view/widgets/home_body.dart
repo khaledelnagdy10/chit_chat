@@ -1,4 +1,4 @@
-import 'package:chit_chat/features/home/presentation/view/widgets/custom_app_bar.dart';
+import 'package:chit_chat/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -8,7 +8,7 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 80,
-      child: const CustomAppBar())
+      child: const CustomAppBar(text: 'Groups',))
     
     
     ;

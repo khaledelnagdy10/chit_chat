@@ -4,6 +4,7 @@ import 'package:chit_chat/constans.dart';
 import 'package:chit_chat/core/utils/logo.dart';
 import 'package:chit_chat/core/utils/text_styles.dart';
 import 'package:chit_chat/core/utils/widgets/custom_button.dart';
+import 'package:chit_chat/core/utils/widgets/custom_scaffold_messanger.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
 import 'package:chit_chat/features/presintaion/auth/log_in/view/log_in_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,13 +18,13 @@ class SignUpBody extends StatefulWidget {
 }
 
 class _SignUpBodyState extends State<SignUpBody> {
-  final GlobalKey<FormState> key = GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
   String emailAddress = '';
   String password = '';
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: key,
+      key: formKey,
       child: Column(
         children: [
           const Row(
@@ -68,19 +69,15 @@ class _SignUpBodyState extends State<SignUpBody> {
                       email: emailAddress,
                       password: password,
                     );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Sucssesfull')));
+                   customScaffoldMessanger(context, 'sucssesfull', Colors.green);
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('The password provided is too weak.')));
+                   customScaffoldMessanger(context, 'Weak Password', Colors.red);
                     } else if (e.code == 'email-already-in-use') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text(
-                              'The account already exists for that email')));
+                    customScaffoldMessanger(context, 'Email already in use', Colors.red);
                     }
                   } catch (e) {
-                    print(e);
+                    customScaffoldMessanger(context, e.toString(), Colors.red);
                   }
                 }
               },

@@ -1,4 +1,4 @@
-import 'package:chit_chat/features/presintaion/auth/sign_up/view/sign_up_view.dart';
+import 'package:chit_chat/features/auth/presentation/sign_up/view/sign_up_view.dart';
 import 'package:chit_chat/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

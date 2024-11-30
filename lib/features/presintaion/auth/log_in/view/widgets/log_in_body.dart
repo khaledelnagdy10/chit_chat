@@ -4,6 +4,7 @@ import 'package:chit_chat/constans.dart';
 import 'package:chit_chat/core/utils/logo.dart';
 import 'package:chit_chat/core/utils/text_styles.dart';
 import 'package:chit_chat/core/utils/widgets/custom_button.dart';
+import 'package:chit_chat/core/utils/widgets/custom_scaffold_messanger.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
 import 'package:chit_chat/features/presintaion/auth/log_in/view/log_in_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -64,21 +65,16 @@ class _LoginBodyState extends State<LoginBody> {
                 if (formKey.currentState!.validate()) {
                   try {
                     UserCredential credential = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
+                        .signInWithEmailAndPassword(
                       email: emailAddress,
                       password: password,
                     );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Sucssesfull')));
+                   customScaffoldMessanger(context, 'sucssesfull', Colors.green);
                   } on FirebaseAuthException catch (e) {
-                    if (e.code == 'weak-password') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('The password provided is too weak.')));
-                    } else if (e.code == 'email-already-in-use') {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text(
-                              'The account already exists for that email')));
-                    }
+                    if (e.code == 'invalid-credintioal') {
+                      customScaffoldMessanger(context, 'Email or password is wrong', Colors.red);
+                     
+                    } 
                   } catch (e) {
                     print(e);
                   }

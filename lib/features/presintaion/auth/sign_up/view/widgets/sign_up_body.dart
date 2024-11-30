@@ -21,6 +21,7 @@ class _SignUpBodyState extends State<SignUpBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
   String emailAddress = '';
   String password = '';
+  String fullName = '';
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -41,21 +42,27 @@ class _SignUpBodyState extends State<SignUpBody> {
             style: Style.textStyle18.copyWith(color: Colors.grey[700]),
           ),
           const Logo(),
+          CustomTextFormField(onChanged: (String value){
+            setState(() {
+              fullName =value;
+
+            });
+          }, text: 'Full name', icon: const Icon(Icons.person),),
           CustomTextFormField(
-            text: 'email',
+            text: 'Email',
             onChanged: (String value) {
               setState(() {
                 emailAddress = value;
                 log(emailAddress);
               });
-            },
+            }, icon: Icon(Icons.email),
           ),
           CustomTextFormField(
             text: 'password',
             onChanged: (String value) {
               password = value;
               log(password);
-            },
+            }, icon: const Icon(Icons.lock),
           ),
           SizedBox(
             width: 370,

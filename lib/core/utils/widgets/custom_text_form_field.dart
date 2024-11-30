@@ -6,10 +6,11 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     required this.onChanged,
-    required this.text,
+    required this.text, required this.icon,
   });
   final String text;
   final void Function(String value) onChanged;
+  final Icon icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +26,8 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           labelText: text,
           labelStyle: Style.textStyle18,
-          prefixIcon: const Icon(Icons.email),
+          
+          prefixIcon:  icon,
           prefixIconColor: kPrimaryColor,
           enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: kPrimaryColor)),

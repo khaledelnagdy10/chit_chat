@@ -6,7 +6,7 @@ import 'package:chit_chat/core/utils/text_styles.dart';
 import 'package:chit_chat/core/utils/widgets/custom_button.dart';
 import 'package:chit_chat/core/utils/widgets/custom_scaffold_messanger.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
-import 'package:chit_chat/features/presintaion/auth/log_in/view/log_in_view.dart';
+import 'package:chit_chat/features/presintaion/auth/sign_up/view/sign_up_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -42,20 +42,20 @@ class _LoginBodyState extends State<LoginBody> {
           ),
           const Logo(),
           CustomTextFormField(
-            text: 'email',
+            text: 'Email',
             onChanged: (String value) {
               setState(() {
                 emailAddress = value;
                 log(emailAddress);
               });
-            },
+            }, icon: const Icon(Icons.email),
           ),
           CustomTextFormField(
             text: 'password',
             onChanged: (String value) {
               password = value;
               log(password);
-            },
+            }, icon: const Icon(Icons.lock),
           ),
           SizedBox(
             width: 370,
@@ -91,11 +91,11 @@ class _LoginBodyState extends State<LoginBody> {
               GestureDetector(
                 onTap: () async {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const LoginView();
+                    return const SignUpView();
                   }));
                 },
                 child: Text(
-                  'LogIn ',
+                  'SignUp ',
                   style: Style.textStyle18.copyWith(color: kPrimaryColor),
                 ),
               ),

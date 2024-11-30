@@ -18,7 +18,7 @@ class CustomTextFormField extends StatelessWidget {
         onChanged: onChanged,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'please enter DATA';
+            return 'please enter Data';
           }
           return null;
         },

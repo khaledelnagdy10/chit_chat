@@ -7,6 +7,7 @@ import 'package:chit_chat/core/utils/widgets/custom_button.dart';
 import 'package:chit_chat/core/utils/widgets/custom_scaffold_messanger.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
 import 'package:chit_chat/features/presintaion/auth/log_in/view/log_in_view.dart';
+import 'package:chit_chat/features/presintaion/auth/services/auth_services/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -70,22 +71,7 @@ class _SignUpBodyState extends State<SignUpBody> {
               text: 'SignUp',
               onPressed: () async {
                 if (formKey.currentState!.validate()) {
-                  try {
-                    UserCredential credential = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                      email: emailAddress,
-                      password: password,
-                    );
-                   customScaffoldMessanger(context, 'sucssesfull', Colors.green);
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == 'weak-password') {
-                   customScaffoldMessanger(context, 'Weak Password', Colors.red);
-                    } else if (e.code == 'email-already-in-use') {
-                    customScaffoldMessanger(context, 'Email already in use', Colors.red);
-                    }
-                  } catch (e) {
-                    customScaffoldMessanger(context, e.toString(), Colors.red);
-                  }
+                 AuthServices().createUserWithEmailAndPassword(context, emailAddress, password);
                 }
               },
             ),

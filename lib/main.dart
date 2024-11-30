@@ -1,3 +1,4 @@
+import 'package:chit_chat/features/presintaion/auth/sign_up/view/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return const MaterialApp(home: SignUpView());
   }
 }

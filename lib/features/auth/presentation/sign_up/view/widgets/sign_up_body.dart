@@ -54,7 +54,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                 emailAddress = value;
                 log(emailAddress);
               });
-            }, icon: Icon(Icons.email),
+            }, icon: const Icon(Icons.email),
           ),
           CustomTextFormField(
             text: 'password',

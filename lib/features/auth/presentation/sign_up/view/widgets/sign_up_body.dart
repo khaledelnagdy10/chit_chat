@@ -7,6 +7,7 @@ import 'package:chit_chat/core/utils/widgets/custom_button.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
 import 'package:chit_chat/features/auth/presentation/log_in/view/log_in_view.dart';
 import 'package:chit_chat/features/auth/data/services/auth_services/auth_services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SignUpBody extends StatefulWidget {
@@ -21,6 +22,7 @@ class _SignUpBodyState extends State<SignUpBody> {
   String emailAddress = '';
   String password = '';
   String fullName = '';
+  CollectionReference db = FirebaseFirestore.instance.collection('user');
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -70,6 +72,11 @@ class _SignUpBodyState extends State<SignUpBody> {
               onPressed: () async {
                 if (formKey.currentState!.validate()) {
                  AuthServices().createUserWithEmailAndPassword(context, fullName,emailAddress, password);
+                 db.add({
+                'email':emailAddress,
+                'full name':fullName
+
+                 });
                 }
               },
             ),

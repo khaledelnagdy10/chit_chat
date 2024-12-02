@@ -1,5 +1,4 @@
 import 'package:chit_chat/core/utils/widgets/custom_app_bar.dart';
-import 'package:chit_chat/features/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -11,7 +10,7 @@ class HomeBody extends StatelessWidget {
       height: 80,
       child:   
    
-    CustomAppBar(text: 'Group',  actionIcon: Icon(Icons.search))
+    CustomAppBar(text: 'Groups',  actionIcon: Icon(Icons.search))
       
 
       ,)

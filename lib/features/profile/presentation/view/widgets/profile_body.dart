@@ -6,9 +6,35 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(height: 80,
-      child: CustomAppBar(text: 'Profile',  
-      actionIcon: const Icon(Icons.search)),
+    return   Column(
+      children: [
+        const CustomAppBar(text: 'Profile',  
+        actionIcon: Icon(Icons.search)),
+        const SizedBox(height: 50,),
+    const SizedBox(height: 90,),
+        Icon(Icons.account_circle,size: 150,color: Colors.grey[750],),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal:  40.0),
+          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+               Text('Full Name  '),
+               
+               Text('Khaled elnagdy')
+            ],
+          ),
+        ), 
+        const Divider(),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal:  40.0),
+          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+               Text('Email'),
+               
+               Text('Khaledelnagdy@gmail.com')
+            ],
+          ),
+        ), 
+      ],
     )
      ;
   }

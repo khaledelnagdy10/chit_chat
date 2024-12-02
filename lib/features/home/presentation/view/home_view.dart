@@ -1,6 +1,6 @@
 import 'package:chit_chat/constans.dart';
 import 'package:chit_chat/features/home/presentation/view/widgets/home_body.dart';
-import 'package:chit_chat/features/home/presentation/view/widgets/home_drawer.dart';
+import 'package:chit_chat/core/utils/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

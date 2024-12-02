@@ -7,8 +7,8 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(height: 80,
-      child: CustomAppBar(text: 'Profile', leadingIcon: const Icon(Icons.menu), 
-      actionIcon: const Icon(Icons.search), leadingIconOnPressed: (){}, actionIconOnPressed: (){}),
+      child: CustomAppBar(text: 'Profile',  
+      actionIcon: const Icon(Icons.search)),
     )
      ;
   }

@@ -7,17 +7,11 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       height: 80,
       child:   
-      CustomAppBar(text: 'Group', leadingIcon: const Icon(Icons.menu), actionIcon: const Icon(Icons.search), 
-      leadingIconOnPressed: (){
-Navigator.push(context, MaterialPageRoute(builder: (context){
-
-return const ProfileView();
-}));
-
-      }, actionIconOnPressed: (){})
+   
+    CustomAppBar(text: 'Group',  actionIcon: Icon(Icons.search))
       
 
       ,)

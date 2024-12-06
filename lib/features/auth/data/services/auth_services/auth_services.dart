@@ -27,7 +27,7 @@ class AuthServices {
                   }
    }
 
-Future signInWithEmailAndPassword  (context ,String emailAddress ,password )async{
+void signInWithEmailAndPassword  (context ,String emailAddress ,password )async{
 
       try {
                     UserCredential credential = await FirebaseAuth.instance

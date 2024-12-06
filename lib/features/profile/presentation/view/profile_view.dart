@@ -8,7 +8,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
       body: ProfileBody(),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:chit_chat/core/utils/widgets/custom_scaffold_messanger.dart';
 import 'package:chit_chat/features/home/presentation/view/home_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ class AuthServices {
                       email: emailAddress,
                       password: password,
                     );
+                    
+
 
                    customScaffoldMessanger(context, 'sucssesfull', Colors.green);
                  

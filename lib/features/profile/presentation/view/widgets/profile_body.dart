@@ -25,10 +25,12 @@ CollectionReference db = FirebaseFirestore.instance.collection('user');
           );
         }
         if (!snapshot.hasData || !snapshot.data!.exists) {
-          return const Center(
-            child: Text('User not found.'),
-          );
+          return const Center(child: Text('User not found.'));
         }
+       if (FirebaseAuth.instance.currentUser == null) {
+         return const Center(child: Text('Currentuser not found'),);
+       }
+
         
 
        Map<String,dynamic>? userData = snapshot.data !.data() as Map<String,dynamic>;

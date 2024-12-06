@@ -7,6 +7,7 @@ import 'package:chit_chat/core/utils/widgets/custom_button.dart';
 import 'package:chit_chat/core/utils/widgets/custom_text_form_field.dart';
 import 'package:chit_chat/features/auth/data/services/auth_services/auth_services.dart';
 import 'package:chit_chat/features/auth/presentation/sign_up/view/sign_up_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginBody extends StatefulWidget {
@@ -20,6 +21,7 @@ class _LoginBodyState extends State<LoginBody> {
   final GlobalKey<FormState> formKey = GlobalKey();
   String emailAddress = '';
   String password = '';
+  String userId = FirebaseAuth.instance.currentUser!.uid;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -63,7 +65,7 @@ class _LoginBodyState extends State<LoginBody> {
               onPressed: () async {
                 if (formKey.currentState!.validate()) {
                 AuthServices().signInWithEmailAndPassword(context, emailAddress, password);
-                
+                log(userId);
                 }
 
               },

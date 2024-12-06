@@ -1,11 +1,14 @@
 import 'package:chit_chat/core/utils/widgets/custom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileBody extends StatelessWidget {
    ProfileBody({super.key});
 CollectionReference db = FirebaseFirestore.instance.collection('user');
- String userId ='KNToYk5gwLUz2DiouAjI';
+
+ String userId = FirebaseAuth.instance.currentUser!.uid;
+
  
   @override
   Widget build(BuildContext context) {
@@ -16,9 +19,17 @@ CollectionReference db = FirebaseFirestore.instance.collection('user');
         if (snapshot.hasError) {
           return const Text('something went wrong');
         } 
-         if (!snapshot.hasData || !snapshot.data!.exists) {
-          return const Center(child: Text('User not found'));
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
+        if (!snapshot.hasData || !snapshot.data!.exists) {
+          return const Center(
+            child: Text('User not found.'),
+          );
+        }
+        
 
        Map<String,dynamic>? userData = snapshot.data !.data() as Map<String,dynamic>;
        String fullName =  userData ['full name']?? 'N/A';

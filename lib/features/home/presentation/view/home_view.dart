@@ -1,4 +1,4 @@
-import 'package:chit_chat/constans.dart';
+import 'package:chit_chat/features/home/presentation/view/widgets/custom_floating_action_botton.dart';
 import 'package:chit_chat/features/home/presentation/view/widgets/home_body.dart';
 import 'package:chit_chat/core/utils/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +9,12 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return 
-     Scaffold(
-      drawer:  const NavBar(),
+     const Scaffold(
+      drawer:  NavBar(),
       body: 
-     const HomeBody(),
+     HomeBody(),
      
-    floatingActionButton: Container(
-      decoration: const BoxDecoration(shape: BoxShape.circle,color: kPrimaryColor) ,
-      child: IconButton(onPressed: (){}, icon: const Icon(Icons.add))),
+    floatingActionButton: CustomFloatingActionButton()
     );
   }
 }

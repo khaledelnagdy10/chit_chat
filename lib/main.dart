@@ -1,6 +1,7 @@
 import 'package:chit_chat/features/auth/data/manager/log_in/log_in_cubit.dart';
 import 'package:chit_chat/features/auth/data/manager/sign_up/sign_up_cubit.dart';
 import 'package:chit_chat/features/auth/presentation/sign_up/view/sign_up_view.dart';
+import 'package:chit_chat/features/home/data/manager/home_cubit/home_cubit.dart';
 import 'package:chit_chat/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,8 @@ class MainApp extends StatelessWidget {
       
       providers: [
         BlocProvider(create: (context)=>LogInCubit()),
-         BlocProvider(create: (context)=>SignUpCubit())
+         BlocProvider(create: (context)=>SignUpCubit()),
+         BlocProvider(create: (context)=>HomeCubit())
       ],
       child: const MaterialApp(
           debugShowCheckedModeBanner: false, home: SignUpView()),

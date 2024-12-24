@@ -8,13 +8,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-     const Scaffold(
-      drawer:  NavBar(),
-      body: 
-     HomeBody(),
-     
-    floatingActionButton: CustomFloatingActionButton()
-    );
+    return Scaffold(
+        drawer: const NavBar(),
+        body: const HomeBody(),
+        floatingActionButton: CustomFloatingActionButton());
   }
 }
